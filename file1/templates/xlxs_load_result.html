@@ -1,0 +1,36 @@
+<html>
+    <head></head>
+    <body>
+        <div class="container">
+            <h1>Результат загрузки данных в формте XLXS</h1>
+            <h3>Таблица : {{model_title}}</h3>
+            <table>
+                <tr>
+                    {% for field in fields %}
+                    <td>{{field.verbose_name}}</td>
+                    {% endfor %}
+                </tr>
+                {% for object in objects%}
+                <tr>
+                    {% for key, value in object.items %}
+                    <td><a href="/admin/file1/{{model_name}}/{{object.id}}/change/">{{value}}</a></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
+
+<style>
+    td {
+        border: black solid 1px;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto 0;
+    }
+</style>

@@ -1,0 +1,36 @@
+<html>
+    <head></head>
+    <body>
+        <div class="container">
+            <h1>Загрузка данных в формте XLXS</h1>
+            <h3>Таблица : {{model_title}}</h3>
+            <h4>Поля для заполнения:</h4>
+            <table>
+                <tr>
+                    {% for field in fields %}
+                    <td>{{field.verbose_name}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+            <form action="/xlxs_load/form/{{slug}}/" method="post" enctype="multipart/form-data" style="margin-top: 15px;">
+                {% csrf_token %}
+                <input name="table" type="file"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv" >
+                <button type="submit">Загрузить</button>
+            </form>
+        </div>
+    </body>
+</html>
+
+<style>
+    td {
+        border: black solid 1px;
+        
+    }
+    table {
+        border-collapse: collapse;
+    }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto 0;
+    }
+</style>

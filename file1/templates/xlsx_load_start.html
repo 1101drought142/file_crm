@@ -1,0 +1,26 @@
+<html>
+    <head></head>
+    <body>
+        <div class="container">
+            <h1>Загрузка данных в формте XLXS</h1>
+            <h3>Выбирите таблицу</h3>
+            {% for key, value in models.items %}
+            <p><a href="/xlxs_load/{{key}}/">{{value}}</a></p>
+            {% endfor %}
+        </div>
+    </body>
+</html>
+
+<style>
+    td {
+        border: black solid 1px;
+        
+    }
+    table {
+        border-collapse: collapse;
+    }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto 0;
+    }
+</style>
